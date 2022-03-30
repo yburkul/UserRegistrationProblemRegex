@@ -10,6 +10,10 @@ namespace UserRegistrationRegex
             Console.WriteLine("Enter a First Name");
             string FirstName = Console.ReadLine();
             userRegistration.validfirstname(FirstName);
+
+            Console.WriteLine("Enter a Last Name");
+            string LastName = Console.ReadLine();
+            userRegistration.validlastname(LastName);
         }
     }
 }

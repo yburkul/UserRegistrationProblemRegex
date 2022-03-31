@@ -17,6 +17,7 @@ namespace UserRegistrationRegex
                 Console.WriteLine("5: For Password Rule One");
                 Console.WriteLine("6: For Password Rule Two");
                 Console.WriteLine("7: For Password Rule Three");
+                Console.WriteLine("8: For Password Rule Four");
 
                     option = int.Parse(Console.ReadLine());
                 switch (option)
@@ -55,6 +56,11 @@ namespace UserRegistrationRegex
                         Console.WriteLine("Enter a Password");
                         string PasswordThree = Console.ReadLine();
                         userRegistration.validPasswordRuleThree(PasswordThree);
+                        break;
+                    case 8:
+                        Console.WriteLine("Enter a Password");
+                        string PasswordFour = Console.ReadLine();
+                        userRegistration.validPasswordRuleFour(PasswordFour);
                         break;
                     default:
                         Console.WriteLine("Invalid Input");

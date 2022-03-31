@@ -16,6 +16,7 @@ namespace UserRegistrationRegex
         public Regex PasswordRuleOne = new Regex(@"^[A-Z][A-Za-z]{8,}$");
         public Regex PasswordRuleTwo = new Regex(@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
         public Regex PasswordRuleThree = new Regex(@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
+        public Regex PasswordRuleFour = new Regex(@"^(?=[a-zA-Z0-9#@$?]{8,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).*$");
         public void validfirstname(string FirstName)
         {
             Console.WriteLine("First name: " + FirstName);
@@ -49,7 +50,7 @@ namespace UserRegistrationRegex
         }
         public void validPasswordRuleOne(string PasswordOne)
         {
-            Console.WriteLine("Password Rule One" + PasswordOne);
+            Console.WriteLine("Password Rule One: " + PasswordOne);
             if (PasswordRuleOne.IsMatch(PasswordOne))
                 Console.WriteLine("Password is valid");
             else
@@ -57,7 +58,7 @@ namespace UserRegistrationRegex
         }
         public void validPasswordRuleTwo(string PasswordTwo)
         {
-            Console.WriteLine("Password Rule Two" + PasswordTwo);
+            Console.WriteLine("Password Rule Two: " + PasswordTwo);
             if (PasswordRuleTwo.IsMatch(PasswordTwo))
                 Console.WriteLine("Password is valid");
             else
@@ -65,11 +66,19 @@ namespace UserRegistrationRegex
         }
         public void validPasswordRuleThree(string PasswordThree)
         {
-            Console.WriteLine("Password Rule Three" + PasswordThree);
+            Console.WriteLine("Password Rule Three: " + PasswordThree);
             if (PasswordRuleThree.IsMatch(PasswordThree))
                 Console.WriteLine("Password is valid");
             else
                 Console.WriteLine("Password is not valid");
+        }
+        public void validPasswordRuleFour(string PasswordFour)
+        {
+            Console.WriteLine("Passord Rule four: " + PasswordFour);
+            if (PasswordRuleFour.IsMatch(PasswordFour))
+                Console.WriteLine("Password is valid");
+            else
+                Console.WriteLine("Password is invalid");
         }
     }
 }

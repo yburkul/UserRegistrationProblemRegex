@@ -15,6 +15,7 @@ namespace UserRegistrationRegex
         public Regex MobileNumberRegex = new Regex(@"^[0-9]{2}\s[0-9]{10}$");
         public Regex PasswordRuleOne = new Regex(@"^[A-Z][A-Za-z]{8,}$");
         public Regex PasswordRuleTwo = new Regex(@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
+        public Regex PasswordRuleThree = new Regex(@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
         public void validfirstname(string FirstName)
         {
             Console.WriteLine("First name: " + FirstName);
@@ -50,17 +51,25 @@ namespace UserRegistrationRegex
         {
             Console.WriteLine("Password Rule One" + PasswordOne);
             if (PasswordRuleOne.IsMatch(PasswordOne))
-                Console.WriteLine("Password One is valid");
+                Console.WriteLine("Password is valid");
             else
-                Console.WriteLine("Password One is not valid");
+                Console.WriteLine("Password is not valid");
         }
         public void validPasswordRuleTwo(string PasswordTwo)
         {
             Console.WriteLine("Password Rule Two" + PasswordTwo);
             if (PasswordRuleTwo.IsMatch(PasswordTwo))
-                Console.WriteLine("Password Two is valid");
+                Console.WriteLine("Password is valid");
             else
-                Console.WriteLine("Password Two is Not valid");
+                Console.WriteLine("Password is Not valid");
+        }
+        public void validPasswordRuleThree(string PasswordThree)
+        {
+            Console.WriteLine("Password Rule Three" + PasswordThree);
+            if (PasswordRuleThree.IsMatch(PasswordThree))
+                Console.WriteLine("Password is valid");
+            else
+                Console.WriteLine("Password is not valid");
         }
     }
 }

@@ -14,6 +14,7 @@ namespace UserRegistrationRegex
         public Regex EmailIdRegex = new Regex(@"^[A-Z a-z]+([.+-][A-Z a-z 0-9]+)*@[A-Z a-z 0-9]+.[A-Z a-z]([.][A-Z a-z]{2,})?$");
         public Regex MobileNumberRegex = new Regex(@"^[0-9]{2}\s[0-9]{10}$");
         public Regex PasswordRuleOne = new Regex(@"^[A-Z][A-Za-z]{8,}$");
+        public Regex PasswordRuleTwo = new Regex(@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
         public void validfirstname(string FirstName)
         {
             Console.WriteLine("First name: " + FirstName);
@@ -52,6 +53,14 @@ namespace UserRegistrationRegex
                 Console.WriteLine("Password One is valid");
             else
                 Console.WriteLine("Password One is not valid");
+        }
+        public void validPasswordRuleTwo(string PasswordTwo)
+        {
+            Console.WriteLine("Password Rule Two" + PasswordTwo);
+            if (PasswordRuleTwo.IsMatch(PasswordTwo))
+                Console.WriteLine("Password Two is valid");
+            else
+                Console.WriteLine("Password Two is Not valid");
         }
     }
 }

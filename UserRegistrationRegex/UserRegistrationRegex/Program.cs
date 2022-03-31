@@ -13,6 +13,7 @@ namespace UserRegistrationRegex
                 Console.WriteLine("1: For First name validation");
                 Console.WriteLine("2: For Last name validation");
                 Console.WriteLine("3: For Email validation");
+                Console.WriteLine("4: For Mobile Number");
 
                     option = int.Parse(Console.ReadLine());
                 switch (option)
@@ -31,6 +32,11 @@ namespace UserRegistrationRegex
                         Console.WriteLine("Enter your EmailId: ");
                         string EmailId = Console.ReadLine();
                         userRegistration.validEmailId(EmailId);
+                        break;
+                    case 4:
+                        Console.WriteLine("Enter a Mobile Number");
+                        string MobileNumber = Console.ReadLine();
+                        userRegistration.validMobileNumber(MobileNumber);
                         break;
                     default:
                         Console.WriteLine("Invalid Input");

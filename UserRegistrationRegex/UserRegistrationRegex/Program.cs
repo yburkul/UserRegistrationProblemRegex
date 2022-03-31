@@ -7,13 +7,36 @@ namespace UserRegistrationRegex
         static void Main(string[] args)
         {
             UserRegistrations userRegistration = new UserRegistrations();
-            Console.WriteLine("Enter a First Name");
-            string FirstName = Console.ReadLine();
-            userRegistration.validfirstname(FirstName);
+            int option = 0;
+            do
+            {
+                Console.WriteLine("1: For First name validation");
+                Console.WriteLine("2: For Last name validation");
+                Console.WriteLine("3: For Email validation");
 
-            Console.WriteLine("Enter a Last Name");
-            string LastName = Console.ReadLine();
-            userRegistration.validlastname(LastName);
+                    option = int.Parse(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        Console.WriteLine("Enter a First Name");
+                        string FirstName = Console.ReadLine();
+                        userRegistration.validfirstname(FirstName);
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter a Last Name");
+                        string LastName = Console.ReadLine();
+                        userRegistration.validlastname(LastName);
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter your EmailId: ");
+                        string EmailId = Console.ReadLine();
+                        userRegistration.validEmailId(EmailId);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                        break;
+                }
+            } while (option != 0);
         }
     }
 }

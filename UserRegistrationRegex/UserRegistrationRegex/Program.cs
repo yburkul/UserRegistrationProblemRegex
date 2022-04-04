@@ -14,10 +14,10 @@ namespace UserRegistrationRegex
                 Console.WriteLine("2: For Last name validation");
                 Console.WriteLine("3: For Email validation");
                 Console.WriteLine("4: For Mobile Number");
-                Console.WriteLine("5: For Password Rule One");
-                Console.WriteLine("6: For Password Rule Two");
-                Console.WriteLine("7: For Password Rule Three");
-                Console.WriteLine("8: For Password Rule Four");
+                Console.WriteLine("5: For Password Min Eight Char");
+                Console.WriteLine("6: For Password At Least One Upper Case");
+                Console.WriteLine("7: For Password At Least One Number");
+                Console.WriteLine("8: For Password One Special Char");
 
                     option = int.Parse(Console.ReadLine());
                 switch (option)

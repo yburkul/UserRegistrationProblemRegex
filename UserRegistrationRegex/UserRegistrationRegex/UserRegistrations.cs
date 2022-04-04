@@ -11,12 +11,12 @@ namespace UserRegistrationRegex
     {
         public Regex FirstNameRegex = new Regex(@"^[A-Z][A-Za-z]{2,}$");
         public Regex LastNameRegex = new Regex(@"^[A-Z][A-Za-z]{2,}$");
-        public Regex EmailIdRegex = new Regex(@"^[A-Z a-z]+([.+-][A-Z a-z 0-9]+)*@[A-Z a-z 0-9]+.[A-Z a-z]([.][A-Z a-z]{2,})?$");
+        public Regex EmailIdRegex = new Regex(@"^[A-Za-z]+([.+-][A-Za-z 0-9]+)*@[A-Za-z 0-9]+.[A-Za-z]([.[A-Za-z]{2,})?$");
         public Regex MobileNumberRegex = new Regex(@"^[0-9]{2}\s[0-9]{10}$");
-        public Regex PasswordRuleOne = new Regex(@"^[A-Z][A-Za-z]{8,}$");
-        public Regex PasswordRuleTwo = new Regex(@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
-        public Regex PasswordRuleThree = new Regex(@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
-        public Regex PasswordRuleFour = new Regex(@"^(?=[a-zA-Z0-9#@$?]{8,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).*$");
+        public Regex PasswordMinEightChar = new Regex(@"^[A-Z][A-Za-z]{8,}$");
+        public Regex PasswordAtLeastOneUpperCase = new Regex(@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
+        public Regex PasswordAtLeastOneNumber = new Regex(@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
+        public Regex PasswordOneSpecialChar = new Regex(@"^(?=[a-zA-Z0-9#@$?]{8,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).*$");
         public void validfirstname(string FirstName)
         {
             Console.WriteLine("First name: " + FirstName);
@@ -80,5 +80,6 @@ namespace UserRegistrationRegex
             else
                 Console.WriteLine("Password is invalid");
         }
+
     }
 }

@@ -51,7 +51,7 @@ namespace UserRegistrationRegex
         public void validPasswordRuleOne(string PasswordOne)
         {
             Console.WriteLine("Password Rule One: " + PasswordOne);
-            if (PasswordRuleOne.IsMatch(PasswordOne))
+            if (PasswordMinEightChar.IsMatch(PasswordOne))
                 Console.WriteLine("Password is valid");
             else
                 Console.WriteLine("Password is not valid");
@@ -59,7 +59,7 @@ namespace UserRegistrationRegex
         public void validPasswordRuleTwo(string PasswordTwo)
         {
             Console.WriteLine("Password Rule Two: " + PasswordTwo);
-            if (PasswordRuleTwo.IsMatch(PasswordTwo))
+            if (PasswordAtLeastOneUpperCase.IsMatch(PasswordTwo))
                 Console.WriteLine("Password is valid");
             else
                 Console.WriteLine("Password is Not valid");
@@ -67,7 +67,7 @@ namespace UserRegistrationRegex
         public void validPasswordRuleThree(string PasswordThree)
         {
             Console.WriteLine("Password Rule Three: " + PasswordThree);
-            if (PasswordRuleThree.IsMatch(PasswordThree))
+            if (PasswordAtLeastOneNumber.IsMatch(PasswordThree))
                 Console.WriteLine("Password is valid");
             else
                 Console.WriteLine("Password is not valid");
@@ -75,7 +75,7 @@ namespace UserRegistrationRegex
         public void validPasswordRuleFour(string PasswordFour)
         {
             Console.WriteLine("Passord Rule four: " + PasswordFour);
-            if (PasswordRuleFour.IsMatch(PasswordFour))
+            if (PasswordOneSpecialChar.IsMatch(PasswordFour))
                 Console.WriteLine("Password is valid");
             else
                 Console.WriteLine("Password is invalid");

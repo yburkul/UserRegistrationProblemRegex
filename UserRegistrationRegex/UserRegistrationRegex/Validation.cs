@@ -9,8 +9,8 @@ namespace UserRegistrationRegex
 {
     public class Validation
     {
-        string FirstNameRegex = (@"^[A-Z][A-Za-z]{2,}$");
-        string LastNameRegex = (@"^[A-Z][A-Za-z]{2,}$");
+        string FirstNameRegex = (@"^[A-Z]{1}[A-Za-z]{2,}$");
+        string LastNameRegex = (@"^[A-Z]{1}[A-Za-z]{2,}$");
         string EmailIdRegex = (@"^[A-Za-z]+([.+-][A-Za-z 0-9]+)*@[A-Za-z 0-9]+.[A-Za-z]([.[A-Za-z]{2,})?$");
         string MobileNumberRegex = (@"^[0-9]{2}\s[0-9]{10}$");
         string PasswordMinEightChar = (@"^[A-Z][A-Za-z]{8,}$");
@@ -28,13 +28,12 @@ namespace UserRegistrationRegex
                 {
                     throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.FIRST_NAME_MESSAGE, "FirstName is not valid");
                 }
-                return "LastName is valid";
+                return "FirstName is valid";
             }
             catch
             {
                 throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.FIRST_NAME_MESSAGE, "FirstName is not valid");
             }
-
         }
         public string ValidLastName(string lastName)
         {
@@ -89,7 +88,6 @@ namespace UserRegistrationRegex
                 throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.MOBILE_NUMBER_MESSAGE, "MobileNumber is not valid");
             }
         }
-
         public string ValidPasswordMinEightChar(string CharPassword)
         {
             Regex regex = new Regex(PasswordMinEightChar);

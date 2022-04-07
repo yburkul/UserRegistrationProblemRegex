@@ -35,7 +35,7 @@ namespace UserRegistrationTesting
         /// TC-2 Last Name Test
         /// </summary>
         /// <param name="lastName"></param>
-        
+
         [TestCase("Burkul")]
         [TestCase("Bu")]
 
@@ -45,7 +45,7 @@ namespace UserRegistrationTesting
             {
                 string actual = validation.ValidLastName(lastName);
             }
-            catch(UserValidationCustomException ex)
+            catch (UserValidationCustomException ex)
             {
                 Assert.AreEqual("LastName is not valid", ex.Message);
             }
@@ -53,7 +53,7 @@ namespace UserRegistrationTesting
         /// <summary>
         /// TC- Email id Test
         /// </summary>
-        /// <param name="emailId"></param>
+        /// <param name = "emailId" ></ param >
 
         [TestCase("y.burkul123@gmail.com")]
         [TestCase("yburkul@gmail.com")]
@@ -83,7 +83,7 @@ namespace UserRegistrationTesting
             {
                 string actual = validation.ValidMobileNumber(MobileNumber);
             }
-            catch(UserValidationCustomException ex)
+            catch (UserValidationCustomException ex)
             {
                 Assert.AreEqual("MobileNumber is not valid", ex.Message);
             }

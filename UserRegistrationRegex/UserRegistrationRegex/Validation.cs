@@ -9,22 +9,22 @@ namespace UserRegistrationRegex
 {
     public class Validation
     {
-        string FirstNameRegex = (@"^[A-Z]{1}[A-Za-z]{2,}$");
-        string LastNameRegex = (@"^[A-Z]{1}[A-Za-z]{2,}$");
-        string EmailIdRegex = (@"^[A-Za-z]+([.+-][A-Za-z 0-9]+)*@[A-Za-z 0-9]+.[A-Za-z]([.[A-Za-z]{2,})?$");
-        string MobileNumberRegex = (@"^[0-9]{2}\s[0-9]{10}$");
-        string PasswordMinEightChar = (@"^[A-Z][A-Za-z]{8,}$");
-        string PasswordAtLeastOneUpperCase = (@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
-        string PasswordAtLeastOneNumber = (@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
-        string PasswordOneSpecialChar = (@"^(?=[a-zA-Z0-9#@$?]{8,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).*$");
+        public Regex FirstNameRegex = new Regex (@"^[A-Z]{1}[A-Za-z]{2,}$");
+        public Regex LastNameRegex = new Regex (@"^[A-Z]{1}[A-Za-z]{2,}$");
+        public Regex EmailIdRegex = new Regex(@"^[A-Za-z]+([.+-][A-Za-z 0-9]+)*@[A-Za-z 0-9]+.[A-Za-z]([.[A-Za-z]{2,})?$");
+        public Regex MobileNumberRegex = new Regex(@"^[0-9]{2}\s[0-9]{10}$");
+        public Regex PasswordMinEightChar = new Regex(@"^[A-Z][A-Za-z]{8,}$");
+        public Regex PasswordAtLeastOneUpperCase = new Regex(@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
+        public Regex PasswordAtLeastOneNumber = new Regex(@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
+        public Regex PasswordOneSpecialChar = new Regex(@"^(?=[a-zA-Z0-9#@$?]{8,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).*$");
 
         public string ValidFirstName(string firstName)
         {
-            Regex regex = new Regex(FirstNameRegex);
-            var result = regex.Match(firstName);
+            bool FirstNamePattern(string FirstNamePattern) => FirstNameRegex.IsMatch(firstName);
+            bool result = FirstNamePattern(firstName);
             try
             {
-                if (!result.Success)
+                if (result == false)
                 {
                     throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.FIRST_NAME_MESSAGE, "FirstName is not valid");
                 }
@@ -37,11 +37,11 @@ namespace UserRegistrationRegex
         }
         public string ValidLastName(string lastName)
         {
-            Regex regex = new Regex(LastNameRegex);
-            var result = regex.Match(lastName);
+            bool LastNamePattern(string LastNamePattern) => LastNameRegex.IsMatch(lastName);
+            bool result = LastNamePattern(lastName);
             try
             {
-                if (!result.Success)
+                if (result == false)
                 {
                     throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.LAST_NAME_MESSAGE, "LastName is not valid");
                 }
@@ -55,11 +55,11 @@ namespace UserRegistrationRegex
 
         public string ValidEmailId(string email)
         {
-            Regex regex = new Regex(EmailIdRegex);
-            var result = regex.Match(email);
+            bool EmailPattern(string EmailPattern) => EmailIdRegex.IsMatch(email);
+            bool result = EmailPattern(email);
             try
             {
-                if(!result.Success)
+                if (result == false)
                 {
                     throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.EMAIL_ID_MESSAGE, "EmailId is not valid");
                 }
@@ -73,11 +73,11 @@ namespace UserRegistrationRegex
 
         public string ValidMobileNumber(string MobileNumber)
         {
-            Regex regex = new Regex(MobileNumberRegex);
-            var result = regex.Match(MobileNumber);
+            bool MobileNumberPattern(string MobileNumberPattern) => MobileNumberRegex.IsMatch(MobileNumber);
+            bool result = MobileNumberPattern(MobileNumber);
             try
             {
-                if(!result.Success)
+                if (result==false)
                 {
                     throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.MOBILE_NUMBER_MESSAGE, "MobileNumber is not valid");
                 }
@@ -90,11 +90,11 @@ namespace UserRegistrationRegex
         }
         public string ValidPasswordMinEightChar(string CharPassword)
         {
-            Regex regex = new Regex(PasswordMinEightChar);
-            var result = regex.Match(CharPassword);
+            bool EightCharPasswordPattern(string EightCharPasswordPattern) => PasswordMinEightChar.IsMatch(CharPassword);
+            bool result = EightCharPasswordPattern(CharPassword);
             try
             {
-                if(!result.Success)
+                if (result == false)
                 {
                     throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.PASSWORD_MIN_EIGHT_CHAR, "Password is not valid");
                 }
@@ -107,11 +107,11 @@ namespace UserRegistrationRegex
         }
         public string ValidPasswordAtLeastOneUpperCase(string PasswordOneUpperCase)
         {
-            Regex regex = new Regex(PasswordAtLeastOneUpperCase);
-            var result = regex.Match(PasswordOneUpperCase);
+            bool OneUpperCasePasswordPattern(string OneUpperCasePasswordPattern) => PasswordAtLeastOneUpperCase.IsMatch(PasswordOneUpperCase);
+            bool result = OneUpperCasePasswordPattern(PasswordOneUpperCase);
             try
             {
-                if (!result.Success)
+                if (result == false)
                 {
                     throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.PASSWORD_ONE_UPPER_CASE, "Password is not valid");
                 }
@@ -125,11 +125,11 @@ namespace UserRegistrationRegex
 
         public string ValidPasswordAtLeastOneNumber(string PasswordUseOneNumber)
         {
-            Regex regex = new Regex(PasswordAtLeastOneNumber);
-            var result = regex.Match(PasswordUseOneNumber);
+            bool AtLeastOneNumberPattern(string AtLeastOneNumberPattern) => PasswordAtLeastOneUpperCase.IsMatch(PasswordUseOneNumber);
+            bool result = AtLeastOneNumberPattern(PasswordUseOneNumber);
             try
             {
-                if (!result.Success)
+                if (result == false)
                 {
                     throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.PASSWORD_ONE_NUMBER_USE, "Password is not valid");
                 }
@@ -142,11 +142,11 @@ namespace UserRegistrationRegex
         }
         public string ValidPasswordOneSpecialChar(string PasswordUseOneSpecialChar)
         {
-            Regex regex = new Regex(PasswordOneSpecialChar);
-            var result = regex.Match(PasswordUseOneSpecialChar);
+            bool AtLeastOneSpecialPattern(string AtLeastOneSpecialPattern) => PasswordOneSpecialChar.IsMatch(PasswordUseOneSpecialChar);
+            bool result = AtLeastOneSpecialPattern(PasswordUseOneSpecialChar);
             try
             {
-                if(!result.Success)
+                if (result == false)
                 {
                     throw new UserValidationCustomException(UserValidationCustomException.ExceptionType.PASSWORD_ONE_SPECIAL_CHAR, "Password is not valid");
                 }
